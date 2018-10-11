@@ -6,46 +6,6 @@ function FormatNumberLength(num, length) {
     return r;
 }
 
-function cadastraVaga() {
-    try {
-        let andar = parseInt(document.getElementById('vagaAndar').value);
-        let numero = parseInt(document.getElementById('vagaNumero').value);
-
-        $.post("http://localhost:3000/vaga/", {'andar': andar, 'numero': numero}, function () {
-            alert("Cadastrou, parabéns!")
-        });
-    } catch (e) {
-        alert("Inválido andar ou número!")
-    }
-}
-
-function ocupaVaga() {
-    let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
-    $.post("http://localhost:3000/vaga/ocupar/" + vagaId, function (data, textStatus, jqXHR) {
-        alert("Ocupou, parabéns!")
-    });
-}
-
-function desocupaVaga() {
-    let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
-    $.post("http://localhost:3000/vaga/desocupar/" + vagaId, function (data, textStatus, jqXHR) {
-        alert("Desocupou, parabéns!")
-    });
-}
-
-function excluirVaga() {
-
-    let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
-    $.ajax({
-        url: "http://localhost:3000/vaga/" + vagaId,
-        type: 'DELETE',
-        success: function () {
-            alert("Excluiu, parabéns!")
-        }
-    });
-}
-
-
 function getVagasLivres() {
     let vagas = [];
     $.getJSON("http://localhost:3000/vaga/desocupada", function (data) {
@@ -91,7 +51,6 @@ function updateVagasLivres() {
     vagas.forEach(function (element, index, array) {
         vagasLivres.innerHTML +=
             "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
-
     });
 }
 
@@ -106,9 +65,37 @@ function atualizaVagasOcupadas() {
     });
 }
 
+function updateQuantidadeVagasLivres() {
+    let numero = "-/-";
+
+    $.getJSON("http://localhost:3000/vaga/desocupada/quantidade", function (data) {
+        console.log("Data: " + data);
+
+        numero = parseInt(data);
+
+        console.log("Quantidade: " + numero);
+
+
+        if (Number.isInteger(numero)) {
+            console.log("É um número");
+            $('#numero-vagas-livres-h').html(numero);
+        } else {
+            console.log("É outra coisa aí");
+        }
+    });
+}
+
+function atualizaQuantidadeNaPagina(numero) {
+    console.log("Quantidade: " + numero);
+
+    // $('#numero-vagas-livres-h').html(numero);
+    document.getElementById('numero-vagas-livres-h').innerHTML = numero;
+}
+
 function atualizaListagens() {
     updateVagasLivres();
     atualizaVagasOcupadas();
+    updateQuantidadeVagasLivres();
 }
 
 $(document).ready(function () {

@@ -5,7 +5,8 @@ class Vaga {
         this.numero = numero;
         this.ocupada = ocupada;
 
-        this.id = FormatNumberLength(this.andar, 2) + FormatNumberLength(this.numero, 3);
+        this.id = andar.toString() + numero.toString();
+            // FormatNumberLength(this.andar, 2) + FormatNumberLength(this.numero, 3);
     }
 
     toString() {
