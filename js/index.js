@@ -95,7 +95,7 @@ function updateVagasLivres() {
     });
 }
 
-function updateVagasOcupadas() {
+function atualizaVagasOcupadas() {
     let vagas = getVagasOcupadas();
 
     let vagasOcupadas = document.getElementById('vagas-ocupadas');
@@ -108,10 +108,10 @@ function updateVagasOcupadas() {
 
 function atualizaListagens() {
     updateVagasLivres();
-    updateVagasOcupadas();
+    atualizaVagasOcupadas();
 }
 
 $(document).ready(function () {
-    updateVagasLivres();
+    atualizaListagens();
 });
 
