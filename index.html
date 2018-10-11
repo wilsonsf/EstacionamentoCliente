@@ -28,8 +28,9 @@
         <h1 class="text-center">Parking Lot</h1>
         <p class="lead text-center">Estacionar nunca foi tão fácil</p>
         <hr class="my-4">
-        <a class="btn btn-light floa t-md-right" href="index.html" role="button">Cliente</a>
-        <a class="btn btn-light floa t-md-right" href="vaga.html" role="button">Vaga</a>
+        <a class="btn btn-light float-md-right" href="index.html" role="button">Cliente</a>
+        <a class="btn btn-light float-md-right" href="vaga.html" role="button">Vaga</a>
+        <button class="btn btn-light float-md-right" onclick="atualizaListagens()">Atualiza</button>
     </div>
 
     <div class="row px-2">
@@ -48,17 +49,12 @@
             <div class="row">
 
                 <div class="col">
-                    <div class="alert invisible" id="alerta"></div>
+                    <div class="panel-heading">Vagas Livres!</div>
 
-                    <div class="form-group">
-                        <label for="vagaAndar">Andar</label>
-                        <input class="form-control-sm" type="number" name="andar" id="vagaAndar" placeholder="12312">
+                    <div class="" id="numero-vagas-livres">
+                        <h1 id="numero-vagas-livres-h"></h1>
                     </div>
 
-                    <div class="form-group">
-                        <label for="vagaNumero">Número</label>
-                        <input class="form-control-sm" type="number" name="numero" id="vagaNumero" placeholder="112312">
-                    </div>
                 </div>
 
                 <div class="col">
