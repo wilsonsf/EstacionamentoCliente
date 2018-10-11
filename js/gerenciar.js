@@ -27,11 +27,21 @@ function cadastraVaga() {
         let andar = parseInt(document.getElementById('vagaAndar').value);
         let numero = parseInt(document.getElementById('vagaNumero').value);
 
-        $.post("http://localhost:3000/vaga/",{'andar': andar, 'numero': numero});
+        $.post("http://localhost:3000/vaga/", {'andar': andar, 'numero': numero});
     } catch (e) {
         //valor inválido no formulário
     }
 }
+
+
+function ocupaVaga() {
+
+    let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
+    $.post("http://localhost:3000/vaga/ocupar/" + vagaId, function (data, textStatus, jqXHR) {
+        // ocupado com sucesso
+    });
+}
+
 
 function getVagasLivres() {
     let vagas = [];
@@ -68,11 +78,6 @@ function getVagasOcupadas() {
     });
 
     return vagas;
-}
-
-function ocuparVaga() {
-
-    // $.post("http://localhost:3000/vaga/ocupar/");
 }
 
 function updateVagasLivres() {
