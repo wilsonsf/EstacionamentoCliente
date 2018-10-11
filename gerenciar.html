@@ -64,8 +64,8 @@
                 <div class="col">
 
                     <div class="btn-group-vertical" role="group" aria-label="buttons">
-                        <button class="btn btn-outline-primary w-100 mb-3">Cadastrar</button>
-                        <button class="btn btn-outline-dark w-100 mb-3">Ocupar</button>
+                        <button class="btn btn-outline-primary w-100 mb-3" onclick="cadastraVaga()">Cadastrar</button>
+                        <button class="btn btn-outline-dark w-100 mb-3" onclick="ocuparVaga()">Ocupar</button>
                         <button class="btn btn-outline-secondary w-100 mb-3">Desocupar</button>
                         <button class="btn btn-outline-danger disabled w-100 mb-3">Excluir</button>
                     </div>
@@ -92,7 +92,30 @@
 </div>
 <script>
     $(document).ready(function () {
-        updateVagasLivres();
+        atualizaListagens();
+
+        // let vagas = [];
+        //
+        // $.getJSON("http://localhost:3000/vaga/ocupada", function (data) {
+        //     $.each(data, function (key, val) {
+        //         let id = val['_id'];
+        //         let andar = val['andar'];
+        //         let numero = val['numero'];
+        //         let ocupada = val['ocupada'];
+        //
+        //         let v = new Vaga(id, andar, numero, ocupada);
+        //
+        //         vagas.push(v);
+        //     });
+        // });
+        //
+        // let vagasOcupadas = document.getElementById('vagas-ocupadas');
+        // vagasOcupadas.innerHTML = '';
+        // vagas.forEach(function (element, index, array) {
+        //     vagasOcupadas.innerHTML +=
+        //         "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
+        // });
+
     });
 </script>
 </body>

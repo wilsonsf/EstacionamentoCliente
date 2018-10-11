@@ -22,6 +22,17 @@ class Vaga {
 
 }
 
+function cadastraVaga() {
+    try {
+        let andar = parseInt(document.getElementById('vagaAndar').value);
+        let numero = parseInt(document.getElementById('vagaNumero').value);
+
+        $.post("http://localhost:3000/vaga/",{'andar': andar, 'numero': numero});
+    } catch (e) {
+        //valor inválido no formulário
+    }
+}
+
 function getVagasLivres() {
     let vagas = [];
     $.getJSON("http://localhost:3000/vaga/desocupada", function (data) {
@@ -42,6 +53,7 @@ function getVagasLivres() {
 
 function getVagasOcupadas() {
     let vagas = [];
+
     $.getJSON("http://localhost:3000/vaga/ocupada", function (data) {
         $.each(data, function (key, val) {
             let id = val['_id'];
@@ -58,31 +70,31 @@ function getVagasOcupadas() {
     return vagas;
 }
 
-function ocuparVaga(andar, numero) {
-    $.post("")
+function ocuparVaga() {
+
+    // $.post("http://localhost:3000/vaga/ocupar/");
 }
 
 function updateVagasLivres() {
     let vagas = getVagasLivres();
 
-    let vagasLivres = $('#vagas-livres');
-    vagasLivres.html('');
+    let vagasLivres = document.getElementById('vagas-livres')
+    vagasLivres.innerHTML = '';
     vagas.forEach(function (element, index, array) {
-        vagasLivres.append(
+        vagasLivres.innerHTML +=
             "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
-        )
+
     });
 }
 
 function updateVagasOcupadas() {
     let vagas = getVagasOcupadas();
 
-    let vagasOcupadas = $('#vagas-ocupadas');
-    vagasOcupadas.html('');
+    let vagasOcupadas = document.getElementById('vagas-ocupadas');
+    vagasOcupadas.innerHTML = '';
     vagas.forEach(function (element, index, array) {
-        vagasOcupadas.append(
+        vagasOcupadas.innerHTML +=
             "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
-        )
     });
 }
 
