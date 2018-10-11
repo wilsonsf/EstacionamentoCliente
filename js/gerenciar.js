@@ -23,7 +23,6 @@ class Vaga {
 }
 
 function getVagasLivres() {
-    var itens = [];
     let vagas = [];
     $.getJSON("http://localhost:3000/vaga/", function (data) {
         $.each(data, function (key, val) {
@@ -33,34 +32,24 @@ function getVagasLivres() {
             let ocupada = val['ocupada'];
 
             let v = new Vaga(id, andar, numero, ocupada);
-            // let li = "<li class='list-group-item' id='" + id + ">" + v.toString() + "</li>";
 
             vagas.push(v);
-            // itens.push(li);
-
-            // console.log(li);
-
-            // $('#vagasLivres').append(li);
         });
     });
 
-    console.log(vagas);
-
     return vagas;
-
 }
 
 function getVagasOcupadas() {
-
     return [];
 }
 
 function updateVagasLivres() {
-    var vagas = getVagasLivres();
+    let vagas = getVagasLivres();
 
+    let vagasLivres = $('#vagas-livres');
+    vagasLivres.html('');
     vagas.forEach(function (element, index, array) {
-        let vagasLivres = $('#vagas-livres');
-        vagasLivres.html('');
         vagasLivres.append(
             "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
         )
