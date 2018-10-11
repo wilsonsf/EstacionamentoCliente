@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Parking</title>
+
+
+    <link rel="stylesheet" href="css/bootstrap-reboot.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+    <style type="text/css">
+        .container {
+            max-width: 900px;
+        }
+    </style>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gerenciar.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1 class="text-center">Parking Lot</h1>
+        <p class="lead text-center">Estacionar nunca foi tão fácil</p>
+        <hr class="my-4">
+        <a class="btn btn-light float-md-right" href="gerenciar.html" role="button">Gerenciar</a>
+    </div>
+
+    <div class="row px-2">
+        <div class="col-3 border p-3" id="panel" style="margin-right: auto;">
+            <aside>
+                <div class="panel-heading">Vagas Livres</div>
+                <div class="panel-body">
+                    <ul class="list-group" id="vagas-livres">
+                        <!--<li class="list-group-item">01-001</li>-->
+                        <!--<li class="list-group-item">01-002</li>-->
+                        <!--<li class="list-group-item">01-003</li>-->
+                        <!--<li class="list-group-item">02-001</li>-->
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-5 border mx-auto p-3">
+            <div class="row">
+
+                <div class="col">
+                    <div class="alert invisible" id="alerta"></div>
+
+                    <div class="form-group">
+                        <label for="vagaAndar">Andar</label>
+                        <input class="form-control-sm" type="number" name="andar" id="vagaAndar" placeholder="12312">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="vagaNumero">Número</label>
+                        <input class="form-control-sm" type="number" name="numero" id="vagaNumero" placeholder="112312">
+                    </div>
+                </div>
+
+                <div class="col">
+
+                    <div class="btn-group-vertical" role="group" aria-label="buttons">
+                        <button class="btn btn-outline-primary w-100 mb-3">Cadastrar</button>
+                        <button class="btn btn-outline-dark w-100 mb-3">Ocupar</button>
+                        <button class="btn btn-outline-secondary w-100 mb-3">Desocupar</button>
+                        <button class="btn btn-outline-danger disabled w-100 mb-3">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-3 border p-3" style="margin-left: auto;">
+            <aside>
+                <div class="panel-heading">Vagas Ocupadas</div>
+                <div class="panel-body">
+                    <ul class="list-group" id="vagasOcupadas">
+                        <li class="list-group-item">01-001</li>
+                        <li class="list-group-item">01-002</li>
+                        <li class="list-group-item">01-003</li>
+                        <li class="list-group-item">02-001</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+    </div>
+
+    <!--<footer class="footer">-->
+        <!--<span class="text-muted">Notas de rodapé</span>-->
+    <!--</footer>-->
+</div>
+<script>
+
+</script>
+
+</body>
+</html>
