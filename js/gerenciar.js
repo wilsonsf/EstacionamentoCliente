@@ -19,7 +19,6 @@ class Vaga {
     toString() {
         return FormatNumberLength(this.andar, 2) + '-' + FormatNumberLength(this.numero, 3);
     }
-
 }
 
 function cadastraVaga() {
@@ -27,19 +26,44 @@ function cadastraVaga() {
         let andar = parseInt(document.getElementById('vagaAndar').value);
         let numero = parseInt(document.getElementById('vagaNumero').value);
 
-        $.post("http://localhost:3000/vaga/", {'andar': andar, 'numero': numero});
+        $.post("http://localhost:3000/vaga/", {'andar': andar, 'numero': numero}, function () {
+            alert("Cadastrou, parabéns!")
+        });
     } catch (e) {
-        //valor inválido no formulário
+        alert("Inválido andar ou número!")
     }
 }
 
-
 function ocupaVaga() {
-
     let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
     $.post("http://localhost:3000/vaga/ocupar/" + vagaId, function (data, textStatus, jqXHR) {
-        // ocupado com sucesso
+        alert("Ocupou, parabéns!")
     });
+}
+
+function desocupaVaga() {
+    let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
+    $.post("http://localhost:3000/vaga/desocupar/" + vagaId, function (data, textStatus, jqXHR) {
+        alert("Desocupou, parabéns!")
+    });
+}
+
+function excluirVaga() {
+
+    try {
+        // let andar = parseInt(document.getElementById('vagaAndar').value);
+        // let numero = parseInt(document.getElementById('vagaNumero').value);
+        let vagaId = $('#vagaAndar').val() + $('#vagaNumero').val();
+        $.ajax({
+            url: "http://localhost:3000/vaga/" + vagaId,
+            type: 'DELETE',
+            success : function () {
+                alert("Excluiu, parabéns!")
+            }
+        });
+    } catch (e) {
+        //valor inválido no formulário
+    }
 }
 
 
