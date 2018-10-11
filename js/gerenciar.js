@@ -55,13 +55,18 @@ function getVagasOcupadas() {
     return [];
 }
 
-$(document).ready(function () {
+function updateVagasLivres() {
     var vagas = getVagasLivres();
 
-    $('#vagasLivres').append(() => {
-        $.each(vagas, (vaga) => {
-
-            return "<li class='list-group-item' id='" + vaga._id + "\'>" + vaga.toString() + "</li>";
-        });
+    vagas.forEach(function (element, index, array) {
+        let vagasLivres = $('#vagas-livres');
+        vagasLivres.html('');
+        vagasLivres.append(
+            "<li class='list-group-item' id='" + element._id + "'>" + element.toString() + "</li>"
+        )
     });
+}
+
+$(document).ready(function () {
+    updateVagasLivres();
 });
