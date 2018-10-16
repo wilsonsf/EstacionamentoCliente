@@ -22,6 +22,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script src="js/vagaModel.js"></script>
+    <script src="js/listagem.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
@@ -32,9 +33,11 @@
         <h1 class="text-center">Parking Lot</h1>
         <p class="lead text-center">Estacionar nunca foi tão fácil</p>
         <hr class="my-4">
-        <a class="btn btn-light float-md-right" href="index.html" role="button">Cliente</a>
-        <a class="btn btn-light float-md-right" href="vaga.html" role="button">Vaga</a>
-        <button class="btn btn-light float-md-right" onclick="atualizaListagens()">Atualiza</button>
+        <div class="btn-group float-md-right">
+            <a class="btn btn-light" href="index.html" role="button">Cliente</a>
+            <a class="btn btn-light" href="vaga.html" role="button">Vaga</a>
+            <button class="btn btn-light" onclick="atualizaListagens()">Atualiza</button>
+        </div>
     </div>
 
     <div class="row px-2">
@@ -43,6 +46,7 @@
                 <div class="panel-heading">Vagas Livres</div>
                 <div class="panel-body">
                     <ul class="list-group" id="vagas-livres">
+                        <li class="list-group-item">99-999</li>
                         <li class="list-group-item">99-999</li>
                     </ul>
                 </div>
@@ -53,7 +57,7 @@
             <div class="panel-heading">Vagas Livres!</div>
 
             <div class="text-center p-lg-5" id="numero-vagas-livres">
-                <h1 id="numero-vagas-livres-h">99</h1>
+                <h1 id="numero-vagas-livres-h">-/-</h1>
             </div>
         </div>
 
@@ -62,10 +66,10 @@
                 <div class="panel-heading">Vagas Ocupadas</div>
                 <div class="panel-body">
                     <ul class="list-group" id="vagas-ocupadas">
-                        <li class="list-group-item">01-001</li>
-                        <li class="list-group-item">01-002</li>
-                        <li class="list-group-item">01-003</li>
-                        <li class="list-group-item">02-001</li>
+                        <li class="list-group-item">99-999</li>
+                        <li class="list-group-item">99-999</li>
+                        <!--<li class="list-group-item">01-003</li>-->
+                        <!--<li class="list-group-item">02-001</li>-->
                     </ul>
                 </div>
             </aside>
@@ -76,6 +80,7 @@
 <script>
     $(document).ready(function () {
         atualizaListagens();
+        getAndUpdateQuantidadeVagasLivres();
     });
 </script>
 </body>
